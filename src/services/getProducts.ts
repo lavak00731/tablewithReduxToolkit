@@ -1,7 +1,7 @@
-const getProducts = async (limit:number, skip:number) =>{
-    console.log(`https://dummyjson.com/products?limit=${limit}&skip=${skip * limit}`)
+const getProducts = async (productsPerPage:number, skip:number) =>{
+   
     try {
-        const response = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`);
+        const response = await fetch(`https://dummyjson.com/products?limit=${productsPerPage}&skip=${skip * productsPerPage}`);
         if(response.ok) {
             const rawResponse = await response;
             const list = await rawResponse.json();

@@ -1,25 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Layout } from './Layout';
 import './App.css';
 import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
 import { Table } from './components/Table';
 import getProducts from './services/getProducts';
+import { useSelector, useDispatch } from 'react-redux';
+import RootState from './interfaces/RootState';
+import { getNewProds } from './features/productsSlice'
 
 const App = () => {
-  const [page, setPage] = useState<number>(1);
-  const [limit, setLimit] = useState<number>(10);
-  const [products, setProducts] = useState([]);
+  const skip = useSelector((store: RootState) => store.products.skip);
+  const productsPerPage = useSelector((store: RootState) => store.products.productsPerPage);
+  const dispatch = useDispatch(); 
  
-    console.log(products)
+
 
   useEffect(() => {
-    getProducts(limit, page).then(data => setProducts(data));
+    getProducts(productsPerPage, skip).then(data => dispatch(getNewProds(data)));
 
     return () => {
       
     }
-  }, [page, limit])
+  }, [productsPerPage, skip])
   
   
   return (
