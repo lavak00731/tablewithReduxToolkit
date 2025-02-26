@@ -1,8 +1,10 @@
 import { useSelector } from "react-redux";
 import RootState from './../interfaces/RootState';
+import ProductType from "../interfaces/ProductType";
+
 export const Table = () => {
-  const prods = useSelector((store: RootState) => store.products.products);
-  console.log(prods)
+  const prods:ProductType[] = useSelector((store: RootState) => store.products.products);
+
   return (
     <table>
         <thead>
@@ -16,7 +18,7 @@ export const Table = () => {
         </thead>
         <tbody>
             {
-              prods ? prods.map(({id, title, description, category, price, thumbnail}) => {
+              prods.length > 0 ? prods.map(({id, title, description, category, price, thumbnail}) => {
                 return (
                   <tr key={id}>
                     <td>{title}</td>

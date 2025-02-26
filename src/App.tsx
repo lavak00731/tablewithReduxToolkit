@@ -7,7 +7,8 @@ import { Table } from './components/Table';
 import getProducts from './services/getProducts';
 import { useSelector, useDispatch } from 'react-redux';
 import RootState from './interfaces/RootState';
-import { getNewProds } from './features/productsSlice'
+import { getAllData, getNewProducts } from './features/productsSlice'
+import { FilterContainer } from './components/FilterContainer';
 
 const App = () => {
   const skip = useSelector((store: RootState) => store.products.skip);
@@ -17,7 +18,7 @@ const App = () => {
 
 
   useEffect(() => {
-    getProducts(productsPerPage, skip).then(data => dispatch(getNewProds(data)));
+    getProducts(productsPerPage, skip).then(data => dispatch(getNewProducts(data.products), getAllData(data)));
 
     return () => {
       
@@ -29,8 +30,9 @@ const App = () => {
     <Layout>
       <Nav/>
       <main>
-        <h1>Hola</h1>
+        <h1>Products</h1>
         <Table />
+        <FilterContainer />
       </main>
       <Footer/>
     </Layout>
