@@ -18,7 +18,10 @@ const App = () => {
 
 
   useEffect(() => {
-    getProducts(productsPerPage, skip).then(data => dispatch(getNewProducts(data.products), getAllData(data)));
+    getProducts(productsPerPage, skip).then((data) =>{console.log(data); 
+      dispatch(getNewProducts(data.products));
+      dispatch(getAllData(data));
+    });
 
     return () => {
       
