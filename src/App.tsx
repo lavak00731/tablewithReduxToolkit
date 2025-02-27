@@ -14,13 +14,11 @@ const App = () => {
   const skip = useSelector((store: RootState) => store.products.skip);
   const productsPerPage = useSelector((store: RootState) => store.products.productsPerPage);
   const dispatch = useDispatch(); 
- 
-
 
   useEffect(() => {
-    getProducts(productsPerPage, skip).then((data) =>{console.log(data); 
+    getProducts(productsPerPage, skip).then((data) =>{ 
       dispatch(getNewProducts(data.products));
-      dispatch(getAllData(data));
+      dispatch(getAllData(data.total));
     });
 
     return () => {

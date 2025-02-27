@@ -1,24 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import ProductService from "../interfaces/ProductService";
 import ProductType from "../interfaces/ProductType";
 
 interface ProductsState {
   skip: number;
   productsPerPage: number;
   products: ProductType[];
-  data: ProductService;
+  total: number;
 }
 
 const initialState: ProductsState = {
   skip: 0,
   productsPerPage: 10,
   products: [],
-  data: {
-    products: [],
-    total: 0,
-    skip: 0,
-    limit: 0
-  }
+  total: 0
 };
 
 const productsSlice = createSlice({
@@ -31,8 +25,8 @@ const productsSlice = createSlice({
     decrement: (state) => {
       state.skip -= 1;
     },
-    getAllData: (state, action: PayloadAction<ProductService>) => {
-      state.data = action.payload
+    getAllData: (state, action: PayloadAction<number>) => {
+      state.total = action.payload
     },
     getNewProducts: (state, action: PayloadAction<ProductType[]>) => {
       state.products = action.payload

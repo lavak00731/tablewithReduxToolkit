@@ -3,6 +3,8 @@ import RootState from './../interfaces/RootState';
 
 export const FilterContainer = () => {
   const prods = useSelector((store: RootState) => store.products.products);
+  const page = useSelector((store: RootState) => store.products.skip);
+
 
   return (
     <div className="btn-wrapper">
