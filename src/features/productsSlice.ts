@@ -25,8 +25,11 @@ const productsSlice = createSlice({
     decrement: (state) => {
       state.skip -= 1;
     },
-    getAllData: (state, action: PayloadAction<number>) => {
-      state.total = action.payload
+    updateByPayload: (state, action:PayloadAction<number>) => {
+      state.skip = action.payload;      
+    },
+    getTotal: (state, action: PayloadAction<number>) => {
+      state.total = action.payload;      
     },
     getNewProducts: (state, action: PayloadAction<ProductType[]>) => {
       state.products = action.payload
@@ -34,6 +37,6 @@ const productsSlice = createSlice({
   },
 });
   
-  export const { increment, decrement, getAllData, getNewProducts } = productsSlice.actions;
+  export const { increment, decrement, getTotal, getNewProducts, updateByPayload } = productsSlice.actions;
   export default productsSlice.reducer;
   

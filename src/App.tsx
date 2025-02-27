@@ -7,7 +7,7 @@ import { Table } from './components/Table';
 import getProducts from './services/getProducts';
 import { useSelector, useDispatch } from 'react-redux';
 import RootState from './interfaces/RootState';
-import { getAllData, getNewProducts } from './features/productsSlice'
+import { getTotal, getNewProducts } from './features/productsSlice'
 import { FilterContainer } from './components/FilterContainer';
 
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
   useEffect(() => {
     getProducts(productsPerPage, skip).then((data) =>{ 
       dispatch(getNewProducts(data.products));
-      dispatch(getAllData(data.total));
+      dispatch(getTotal(data.total));
     });
 
     return () => {
