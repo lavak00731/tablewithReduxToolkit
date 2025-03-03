@@ -4,7 +4,11 @@ import ProductType from "../interfaces/ProductType";
 
 export const Table = () => {
   const prods:ProductType[] = useSelector((store: RootState) => store.products.products);
-
+  if(!prods) {
+    return (
+      <p>Loading...</p>
+    )
+  }
   return (
     <table>
         <thead>

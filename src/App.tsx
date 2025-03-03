@@ -32,6 +32,7 @@ const App = () => {
       <Nav/>
       <main>
         <h1>Products</h1>
+        <FilterContainer />
         <Table />
         <FilterContainer />
       </main>
