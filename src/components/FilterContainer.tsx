@@ -18,17 +18,17 @@ export const FilterContainer = () => {
     return skip === limit;
   }
   return (
-    <div className="btn-wrapper">
+    <div className="pagination">
         <button type="button" disabled={isFirstPage()} onClick={()=>handlePagination(0)}>First Page</button>
         <button type="button" disabled={isFirstPage()} onClick={()=>{
           if(skip>0){
             dispatch(decrement());
           }
         }}>Previous Page</button>
-        <div className="wrapper">
-          <div>
-            <strong>Page</strong> <span>{skip+1}</span>
-          </div>
+        <div className="pagination-text-wrapper">
+          <p aria-live="polite">
+            <strong>Page</strong> <span>{skip+1} of {Math.round(total / 10) + 1}</span>
+          </p>
         </div>
         <button type="button" disabled={isLastPage()} onClick={()=>{
           if(skip<total){

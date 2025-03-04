@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import RootState from './interfaces/RootState';
 import { getTotal, getNewProducts } from './features/productsSlice'
 import { FilterContainer } from './components/FilterContainer';
+import { ProdQuantity } from './components/ProdQuantity';
 
 const App = () => {
   const skip = useSelector((store: RootState) => store.products.skip);
@@ -29,12 +30,17 @@ const App = () => {
   
   return (
     <Layout>
-      <Nav/>
       <main>
         <h1>Products</h1>
-        <FilterContainer />
+        <div className="filter-container">
+          <FilterContainer />
+          <ProdQuantity />
+        </div>        
         <Table />
-        <FilterContainer />
+        <div className="filter-container">
+          <FilterContainer />
+          <ProdQuantity />
+        </div>
       </main>
       <Footer/>
     </Layout>

@@ -2,3 +2,17 @@ main {
     width: 80%;
     margin: 0 auto;
 }
+.filter-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 1rem;
+}
+
