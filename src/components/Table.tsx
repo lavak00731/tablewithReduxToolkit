@@ -9,6 +9,7 @@ export const Table = () => {
   }
   return (
     <table>
+      <caption>Products List</caption>
         <thead>
             <tr>
                 <th>Title</th>
@@ -27,7 +28,7 @@ export const Table = () => {
                     <td>{description}</td>
                     <td>{category}</td>
                     <td>{price}</td>
-                    <td><img src={thumbnail} alt=""/></td>
+                    <td><img loading="lazy" src={thumbnail} alt=""/></td>
                   </tr>
                 );
               }) : null

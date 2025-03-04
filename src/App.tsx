@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Layout } from './Layout';
 import './App.css';
-import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
 import { Table } from './components/Table';
 import getProducts from './services/getProducts';
