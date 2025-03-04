@@ -26,7 +26,7 @@ export const FilterContainer = () => {
           }
         }}>Previous Page</button>
         <div className="pagination-text-wrapper">
-          <p aria-live="polite">
+          <p aria-live="polite" aria-atomic="true">
             <strong>Page</strong> <span>{skip+1} of {Math.round(total / 10) + 1}</span>
           </p>
         </div>

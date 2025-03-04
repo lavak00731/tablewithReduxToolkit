@@ -5,6 +5,6 @@ export const ProdQuantity = () => {
     const skip = useSelector((store: RootState) => store.products.skip);
     const prods = useSelector((store: RootState) => store.products.products);
   return (
-    <p className="quantity-amount" aria-live="polite"><strong>Products</strong> {prods.length + (skip*10)} of {total}</p>
+    <p className="quantity-amount" aria-live="polite" aria-atomic="true"><strong>Products</strong> {prods.length + (skip*10)} of {total}</p>
   )
 }
